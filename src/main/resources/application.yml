@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: EurekaServer
+  config:
+    import: configserver:http://localhost:8888
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: EurekaServer1
+    appname: EurekaServer
+  environment: local
+  client:
+    serviceUrl:
+      defaultZone:
+        http://eurekaserver2:8762/eureka
+      register-with-eureka: true
+      fetch-registry: true
